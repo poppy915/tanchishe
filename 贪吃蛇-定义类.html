@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+        .box .row {
+            display: flex;
+        }
+        .box .row > span {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            /* 内减盒模型 */
+            box-sizing: border-box;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./img/block.png" alt=""> -->
+    <script src="./js/Block.js"></script>
+    <script src="./js/Food.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/Map.js"></script>
+    <script src="./js/Snake.js"></script>
+    <script>
+        //实例化各个类
+        var block = new Block('./img/block.png');
+        var food = new Food(2, 6, './img/food.png');
+        var map = new Map(20, 20, 600, 600);
+
+        //定义对象获取🐍类中所需要的所有图片
+        var snake_img_obj = {
+            headImg: ['./img/1.gif', './img/2.gif', './img/3.gif', './img/4.gif'],
+            bodyImg: './img/5.png',
+            tailImg: ['./img/6.png', './img/7.png', './img/8.png', './img/9.png',]
+        }
+        var snake = new Snake(snake_img_obj);
+
+        //实例化Game类
+        var g = new Game(map, snake, food, block);
+        
+
+    </script>
+</body>
+</html>
